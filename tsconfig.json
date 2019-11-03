@@ -22,6 +22,7 @@
     "paths": {
       "@bin/*": ["./bin/*"],
       "@lib/*": ["./lib/*"],
+      "@src/*": ["./src/*"],
     },
   },
   "exclude": ["cdk.out"]
