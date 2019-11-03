@@ -15,6 +15,7 @@
     "@aws-cdk/assert": "^1.15.0",
     "@types/aws-lambda": "^8.10.34",
     "@types/jest": "^24.0.18",
+    "@types/node": "^12.12.5",
     "@typescript-eslint/eslint-plugin": "^2.6.0",
     "@typescript-eslint/parser": "^2.6.0",
     "aws-cdk": "^1.15.0",
@@ -29,6 +30,7 @@
     "typescript": "~3.6.2"
   },
   "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.15.0",
     "@aws-cdk/aws-lambda": "^1.15.0",
     "@aws-cdk/core": "^1.15.0",
     "source-map-support": "^0.5.9"
