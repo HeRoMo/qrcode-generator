@@ -19,6 +19,9 @@ plugins:
   - '@typescript-eslint'
   - jest
   - import
+settings:
+  import/resolver:
+    typescript: '.'
 rules:
   import/prefer-default-export: off
   no-useless-constructor: 0
