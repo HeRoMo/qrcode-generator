@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import cdk = require('@aws-cdk/core');
+import { App } from '@aws-cdk/core';
 import { QrcodeGeneratorStack } from '../lib/qrcode-generator-stack';
 
-const app = new cdk.App();
+const app = new App();
 new QrcodeGeneratorStack(app, 'QrcodeGeneratorStack');
