@@ -1,5 +1,10 @@
 import { Construct, Stack, StackProps } from '@aws-cdk/core';
-import * as lambda from '@aws-cdk/aws-lambda';
+import {
+  Code,
+  Function as LambdaFunc,
+  LayerVersion,
+  Runtime,
+} from '@aws-cdk/aws-lambda';
 import { LambdaRestApi } from '@aws-cdk/aws-apigateway';
 import * as path from 'path';
 
@@ -7,19 +12,26 @@ export class QrcodeGeneratorStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    // IAM Role
+    // Lambda Layer
+    const layer = new LayerVersion(this, 'QRCodeGeneratorLayer', {
+      compatibleRuntimes: [Runtime.NODEJS_10_X],
+      code: Code.fromAsset('dist'),
+    });
 
     // Lambda Function
-    const func = new lambda.Function(this, 'QRCodeGenerator', {
-      runtime: lambda.Runtime.NODEJS_10_X,
+    const func = new LambdaFunc(this, 'QRCodeGenerator', {
+      runtime: Runtime.NODEJS_10_X,
       handler: 'index.handler',
-      code: lambda.Code.fromAsset(path.join(__dirname, '../src')),
+      code: Code.fromAsset(path.join(__dirname, '../src')),
+      layers: [layer],
     });
 
     // APIGateway
-    new LambdaRestApi(this, 'QRCodeGeneratorAPI', {
+    const api = new LambdaRestApi(this, 'QRCodeGeneratorAPI', {
       handler: func,
       restApiName: 'qrcode',
+      proxy: false,
     });
+    api.root.addMethod('GET');
   }
 }
