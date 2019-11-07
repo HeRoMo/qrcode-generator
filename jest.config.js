@@ -11,4 +11,5 @@ module.exports = {
     '^@lib/(.+)': '<rootDir>/lib/$1',
     '^@src/(.+)': '<rootDir>/src/$1',
   },
+  setupFiles: ['<rootDir>/test/env.setup.ts'],
 };
