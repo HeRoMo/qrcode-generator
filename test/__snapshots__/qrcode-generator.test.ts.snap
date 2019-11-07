@@ -1,0 +1,787 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Test 1`] = `
+Object {
+  "Outputs": Object {
+    "QRCodeGeneratorAPIEndpoint187B9CEC": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4ArtifactHashC47DACF8": Object {
+      "Description": "Artifact hash for asset \\"1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4\\"",
+      "Type": "String",
+    },
+    "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3BucketCEA189AC": Object {
+      "Description": "S3 bucket for asset \\"1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4\\"",
+      "Type": "String",
+    },
+    "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3VersionKeyDF33A52B": Object {
+      "Description": "S3 key for asset version \\"1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4\\"",
+      "Type": "String",
+    },
+    "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563ArtifactHashFBD531A5": Object {
+      "Description": "Artifact hash for asset \\"5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563\\"",
+      "Type": "String",
+    },
+    "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3BucketD6B38190": Object {
+      "Description": "S3 bucket for asset \\"5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563\\"",
+      "Type": "String",
+    },
+    "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3VersionKeyEDD0008A": Object {
+      "Description": "S3 key for asset version \\"5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "QRCodeGeneratorAPI2C9FA9D6": Object {
+      "Properties": Object {
+        "Name": "qrcode",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "QRCodeGeneratorAPIAccount8AC74895": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorAPI2C9FA9D6",
+      ],
+      "Properties": Object {
+        "CloudWatchRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorAPICloudWatchRole4704F540",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+    },
+    "QRCodeGeneratorAPICloudWatchRole4704F540": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorAPIGET656555B1",
+      ],
+      "Properties": Object {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": Object {
+          "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC": Object {
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c",
+        },
+        "RestApiId": Object {
+          "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+        },
+        "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "QRCodeGeneratorAPIGET656555B1": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "QRCodeGeneratorF4F29900",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorAPI2C9FA9D6",
+            "RootResourceId",
+          ],
+        },
+        "RestApiId": Object {
+          "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "QRCodeGeneratorAPIGETApiPermissionMyTestStackQRCodeGeneratorAPICE74E176GETB95CA280": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorF4F29900",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+              },
+              "/",
+              Object {
+                "Ref": "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC",
+              },
+              "/GET/",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "QRCodeGeneratorAPIGETApiPermissionTestMyTestStackQRCodeGeneratorAPICE74E176GETAEA96365": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorF4F29900",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+              },
+              "/test-invoke-stage/GET/",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "QRCodeGeneratorF4F29900": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorServiceRole2960A75B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3BucketCEA189AC",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3VersionKeyDF33A52B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3VersionKeyDF33A52B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index.handler",
+        "Layers": Array [
+          Object {
+            "Ref": "QRCodeGeneratorLayerE4B77F14",
+          },
+        ],
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorServiceRole2960A75B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs10.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "QRCodeGeneratorLayerE4B77F14": Object {
+      "Properties": Object {
+        "CompatibleRuntimes": Array [
+          "nodejs10.x",
+        ],
+        "Content": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3BucketD6B38190",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3VersionKeyEDD0008A",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3VersionKeyEDD0008A",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Lambda::LayerVersion",
+    },
+    "QRCodeGeneratorServiceRole2960A75B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;
+
+exports[`Snapshot Test match snapshot 1`] = `
+Object {
+  "Outputs": Object {
+    "QRCodeGeneratorAPIEndpoint187B9CEC": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4ArtifactHashC47DACF8": Object {
+      "Description": "Artifact hash for asset \\"1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4\\"",
+      "Type": "String",
+    },
+    "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3BucketCEA189AC": Object {
+      "Description": "S3 bucket for asset \\"1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4\\"",
+      "Type": "String",
+    },
+    "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3VersionKeyDF33A52B": Object {
+      "Description": "S3 key for asset version \\"1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4\\"",
+      "Type": "String",
+    },
+    "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563ArtifactHashFBD531A5": Object {
+      "Description": "Artifact hash for asset \\"5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563\\"",
+      "Type": "String",
+    },
+    "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3BucketD6B38190": Object {
+      "Description": "S3 bucket for asset \\"5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563\\"",
+      "Type": "String",
+    },
+    "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3VersionKeyEDD0008A": Object {
+      "Description": "S3 key for asset version \\"5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "QRCodeGeneratorAPI2C9FA9D6": Object {
+      "Properties": Object {
+        "Name": "qrcode",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "QRCodeGeneratorAPIAccount8AC74895": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorAPI2C9FA9D6",
+      ],
+      "Properties": Object {
+        "CloudWatchRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorAPICloudWatchRole4704F540",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+    },
+    "QRCodeGeneratorAPICloudWatchRole4704F540": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorAPIGET656555B1",
+      ],
+      "Properties": Object {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": Object {
+          "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC": Object {
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c",
+        },
+        "RestApiId": Object {
+          "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+        },
+        "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "QRCodeGeneratorAPIGET656555B1": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "QRCodeGeneratorF4F29900",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorAPI2C9FA9D6",
+            "RootResourceId",
+          ],
+        },
+        "RestApiId": Object {
+          "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "QRCodeGeneratorAPIGETApiPermissionMyTestStackQRCodeGeneratorAPICE74E176GETB95CA280": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorF4F29900",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+              },
+              "/",
+              Object {
+                "Ref": "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC",
+              },
+              "/GET/",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "QRCodeGeneratorAPIGETApiPermissionTestMyTestStackQRCodeGeneratorAPICE74E176GETAEA96365": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorF4F29900",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "QRCodeGeneratorAPI2C9FA9D6",
+              },
+              "/test-invoke-stage/GET/",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "QRCodeGeneratorF4F29900": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorServiceRole2960A75B",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3BucketCEA189AC",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3VersionKeyDF33A52B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters1fd0389f71c5bd751eed29bf95c1912194ed37b345f22dcaa9dca7348bec8ac4S3VersionKeyDF33A52B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index.handler",
+        "Layers": Array [
+          Object {
+            "Ref": "QRCodeGeneratorLayerE4B77F14",
+          },
+        ],
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "QRCodeGeneratorServiceRole2960A75B",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs10.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "QRCodeGeneratorLayerE4B77F14": Object {
+      "Properties": Object {
+        "CompatibleRuntimes": Array [
+          "nodejs10.x",
+        ],
+        "Content": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3BucketD6B38190",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3VersionKeyEDD0008A",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters5620e63453b48b44a6f72c07ec2bb44484dc57dbcee9427c3c4e041c1bfe6563S3VersionKeyEDD0008A",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+      },
+      "Type": "AWS::Lambda::LayerVersion",
+    },
+    "QRCodeGeneratorServiceRole2960A75B": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;
