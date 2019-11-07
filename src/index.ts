@@ -2,13 +2,17 @@
 import { APIGatewayEvent, Callback, Context } from 'aws-lambda';
 import * as QRCode from 'qrcode';
 
+function extractTxt(event: APIGatewayEvent): string {
+  return (event && event.queryStringParameters && event.queryStringParameters.txt) || 'NO TEXT';
+}
+
 export async function handler(
   event: APIGatewayEvent,
   context: Context,
   callback: Callback,
 ): Promise<void> {
   const qr = await QRCode.toString(
-    'Hello QR',
+    extractTxt(event),
     { type: 'svg' },
   );
 
