@@ -18,7 +18,10 @@ export async function handler(
 
   callback(null, {
     statusCode: 200,
-    headers: { 'Content-Type': 'image/svg+xml' },
+    headers: {
+      'Content-Type': 'image/svg+xml',
+      'Access-Control-Allow-Origin': '*',
+    },
     body: qr,
   });
 }
