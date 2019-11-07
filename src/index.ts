@@ -2,8 +2,8 @@
 import { APIGatewayEvent, Callback, Context } from 'aws-lambda';
 import * as QRCode from 'qrcode';
 
-function extractTxt(event: APIGatewayEvent): string {
-  return (event && event.queryStringParameters && event.queryStringParameters.txt) || 'NO TEXT';
+function extractTxt(event: APIGatewayEvent): string|null {
+  return event && event.queryStringParameters && event.queryStringParameters.txt;
 }
 
 export async function handler(
@@ -11,17 +11,27 @@ export async function handler(
   context: Context,
   callback: Callback,
 ): Promise<void> {
-  const qr = await QRCode.toString(
-    extractTxt(event),
-    { type: 'svg' },
-  );
+  const txt = extractTxt(event);
 
-  callback(null, {
-    statusCode: 200,
-    headers: {
-      'Content-Type': 'image/svg+xml',
-      'Access-Control-Allow-Origin': '*',
-    },
-    body: qr,
-  });
+  if (txt) {
+    const qr = await QRCode.toString(txt, { type: 'svg' });
+
+    callback(null, {
+      statusCode: 200,
+      body: qr,
+      headers: {
+        'Content-Type': 'image/svg+xml',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  } else {
+    callback(null, {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Please add `txt` query parameter!' }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+  }
 }
