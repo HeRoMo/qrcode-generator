@@ -7,5 +7,9 @@ import { prepareLayerModules } from '../lib/prepareLayerModules';
 
 prepareLayerModules();
 
+const env = {
+  region: process.env.CDK_DEFAULT_REGION,
+  account: process.env.CDK_DEFAULT_ACCOUNT,
+};
 const app = new App();
-new QrcodeGeneratorStack(app, 'QrcodeGeneratorStack');
+new QrcodeGeneratorStack(app, 'QrcodeGeneratorStack', { env });
