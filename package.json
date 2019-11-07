@@ -1,6 +1,6 @@
 {
   "name": "qrcode-generator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "bin": {
     "qrcode-generator": "bin/qrcode-generator.js"
   },
@@ -36,5 +36,6 @@
     "@aws-cdk/core": "^1.15.0",
     "qrcode": "^1.4.2",
     "source-map-support": "^0.5.9"
-  }
+  },
+  "license": "MIT"
 }
