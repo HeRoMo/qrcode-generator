@@ -205,6 +205,13 @@
   dependencies:
     md5 "^2.2.1"
 
+"@aws-cdk/cfnspec@1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-1.16.2.tgz#58953fc55acac7f7a9734c62948348cc538d387b"
+  integrity sha512-FvkToa5GnTmtPTiim++y7gbDgmUEsRgGREAxm4xUkRBbbvfXXfVyMGaLFdNYHuB0ANwpzA3DV2ssDoUh04oqVA==
+  dependencies:
+    md5 "^2.2.1"
+
 "@aws-cdk/cloudformation-diff@1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.15.0.tgz#462ba70c18474d234496dd72a1bb0faafa5144fb"
@@ -217,6 +224,20 @@
     fast-deep-equal "^2.0.1"
     source-map-support "^0.5.13"
     string-width "^4.1.0"
+    table "^5.4.6"
+
+"@aws-cdk/cloudformation-diff@1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.16.2.tgz#11b818f9b0633e0c73b8b02f721a925ea091c9a3"
+  integrity sha512-oLyrDzGr2P8nzcVcE5W5EHHhKfQGImkXR/PEMnmLL8D9MiOnXlm55CeOXld8CYpoYgnbjGoxxldkQLO4t09UjA==
+  dependencies:
+    "@aws-cdk/cfnspec" "1.16.2"
+    "@aws-cdk/cx-api" "1.16.2"
+    colors "^1.4.0"
+    diff "^4.0.1"
+    fast-deep-equal "^2.0.1"
+    source-map-support "^0.5.16"
+    string-width "^4.2.0"
     table "^5.4.6"
 
 "@aws-cdk/core@1.15.0", "@aws-cdk/core@^1.15.0":
@@ -233,10 +254,22 @@
   dependencies:
     semver "^6.3.0"
 
+"@aws-cdk/cx-api@1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-1.16.2.tgz#7b6cf67ce9b5739ee86b1cc306483ae517fe794e"
+  integrity sha512-lwV44H8nYy/GpH65L1wFgVUHpa8JXiLS9nxB3iWiyrw53XMy7FIqtvjKhXXXprv9qiTf9EA8d2TM5bIA4GVeuQ==
+  dependencies:
+    semver "^6.3.0"
+
 "@aws-cdk/region-info@1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.15.0.tgz#6c1605b13d6e1c39de01b0f8edcfa00d6e79b662"
   integrity sha512-mpWoUTbJd80uZ0sPoxdK3W4heyra8nO5Q6FrXtLPjvubCik/wCoLRpkZtb5bJdX/c582o8onscT1OFFAyF/8YA==
+
+"@aws-cdk/region-info@1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.16.2.tgz#6092147a76ad64eed294916fee58928ab4da2179"
+  integrity sha512-gZ98IQNVac5ZO3w7cyM9HtWRUJ3TqGyyZ/xfO56ifsxZfN/kl5dUHFedxfZWvBZo3t4Ofsa+oepTsfjKlWaJ3Q==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
@@ -787,6 +820,11 @@ ansi-regex@^4.0.0, ansi-regex@^4.1.0:
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-4.1.0.tgz#8b9f8f08cf1acb843756a839ca8c7e3168c51997"
   integrity sha512-1apePfXM1UOSqw0o9IiFAovVz9M5S1Dg+4TrDwfMewQ6p/rmMueb7tWZjQ1rx4Loy1ArBggoqGpfqqdI4rondg==
 
+ansi-regex@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.0.tgz#388539f55179bf39339c81af30a654d69f87cb75"
+  integrity sha512-bY6fj56OUQ0hU1KjFNDQuJFezqKdrAyFdIevADiqrWHwSlbmBNMHp5ak2f40Pm8JTFyM2mqxkG6ngkHO11f/lg==
+
 ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
@@ -938,36 +976,36 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-cdk@^1.15.0:
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-1.15.0.tgz#c8f6af3f776b5675a0901551dfee17fcf67c6ac9"
-  integrity sha512-o/vSVb7JKkZsj0vkaVhnpapZI+q2KUJQEcewwUQ09jaheb+VKnHTP9eLEQX8RyfuuilLrVinijlQAIk2WS7dNw==
+aws-cdk@^1.16.2:
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-1.16.2.tgz#7a7febc22a73fd61309e24dd7807cf118e3db764"
+  integrity sha512-crHIoHjNoybYpQakGyjuhT1hEfVVjgdLnKCDDEcXSPT6uQbP6zh+RYTO8R96l5hCcQxxXJ1fgxauQrUc3gqvnQ==
   dependencies:
-    "@aws-cdk/cloudformation-diff" "1.15.0"
-    "@aws-cdk/cx-api" "1.15.0"
-    "@aws-cdk/region-info" "1.15.0"
+    "@aws-cdk/cloudformation-diff" "1.16.2"
+    "@aws-cdk/cx-api" "1.16.2"
+    "@aws-cdk/region-info" "1.16.2"
     archiver "^3.1.1"
-    aws-sdk "^2.556.0"
+    aws-sdk "^2.569.0"
     camelcase "^5.3.1"
     colors "^1.4.0"
     decamelize "^3.2.0"
     fs-extra "^8.1.0"
-    glob "^7.1.4"
+    glob "^7.1.6"
     json-diff "^0.5.4"
     minimatch ">=3.0"
     promptly "^3.0.3"
     proxy-agent "^3.1.1"
     request "^2.88.0"
     semver "^6.3.0"
-    source-map-support "^0.5.13"
+    source-map-support "^0.5.16"
     table "^5.4.6"
     yaml "^1.7.2"
     yargs "^14.2.0"
 
-aws-sdk@^2.556.0:
-  version "2.566.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.566.0.tgz#3d8228bd24f35587004f6e5910f74a8943c62fe4"
-  integrity sha512-AifnTGUUOri1xaOK7UyE4Qol97Cr309SJxA0EKuGBUkCG7KehgPYTMm13JAuXU0lyn7y0X6o1RKvNYeYsZ5DCg==
+aws-sdk@^2.569.0:
+  version "2.570.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.570.0.tgz#9ea794c3c5d81adb39a74b80ca933aaf282542e1"
+  integrity sha512-CZPoaBBGkbuTV3iOnHh7nIB2dV5dwVgYJbXjj27ZatX4K5Lz6ZEEsQMSwx6A6cmjc2Ro312JmUnWmU07imD2oQ==
   dependencies:
     buffer "^4.9.1"
     events "^1.1.1"
@@ -2187,7 +2225,7 @@ glob-parent@^5.0.0:
   dependencies:
     is-glob "^4.0.1"
 
-glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4:
+glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -4528,7 +4566,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@^0.5.13, source-map-support@^0.5.6, source-map-support@^0.5.9:
+source-map-support@^0.5.13, source-map-support@^0.5.16, source-map-support@^0.5.6, source-map-support@^0.5.9:
   version "0.5.16"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.16.tgz#0ae069e7fe3ba7538c64c98515e35339eac5a042"
   integrity sha512-efyLRJDr68D9hBBNIPWFjhpFzURh+KJykQwvMyW5UiZzYwoF6l4YMMDIJJEyFWxWCqfyxLzz6tSfUFR+kXXsVQ==
@@ -4670,6 +4708,15 @@ string-width@^4.1.0:
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^5.2.0"
 
+string-width@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.0.tgz#952182c46cc7b2c313d1596e623992bd163b72b5"
+  integrity sha512-zUz5JD+tgqtuDjMhwIg5uFVV3dtqZ9yQJlZVfq4I01/K5Paj5UHj7VyrQOJvzawSVlKpObApbfD0Ed6yJc+1eg==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.0"
+
 string.prototype.trimleft@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/string.prototype.trimleft/-/string.prototype.trimleft-2.1.0.tgz#6cc47f0d7eb8d62b0f3701611715a3954591d634"
@@ -4725,6 +4772,13 @@ strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   integrity sha512-DuRs1gKbBqsMKIZlrffwlug8MHkcnpjs5VPmL1PAh+mA30U0DTotfDZ0d2UUsXpPmPmMMJ6W773MaA3J+lbiWA==
   dependencies:
     ansi-regex "^4.1.0"
+
+strip-ansi@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.0.tgz#0b1571dd7669ccd4f3e06e14ef1eed26225ae532"
+  integrity sha512-AuvKTrTfQNYNIctbR1K/YGTR1756GycPsg7b9bdV9Duqur4gv6aKqHXah67Z8ImS7WEz5QVcOtlfW2rZEugt6w==
+  dependencies:
+    ansi-regex "^5.0.0"
 
 strip-bom@^3.0.0:
   version "3.0.0"
