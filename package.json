@@ -18,7 +18,7 @@
     "@types/jest": "^24.0.23",
     "@types/node": "^12.12.8",
     "@types/qrcode": "^1.3.4",
-    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.6.0",
     "aws-cdk": "^1.15.0",
     "eslint": "^6.6.0",
