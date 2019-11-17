@@ -1,7 +1,9 @@
 bin/**/*.js
 lib/**/*.js
+src/**/*.js
 test/**/*.js
 
 bin/**/*.d.ts
 lib/**/*.d.ts
+src/**/*.d.ts
 test/**/*.d.ts
