@@ -25,12 +25,12 @@ describe('Contain specific resources', () => {
   });
   it('have Lambda Layer', () => {
     expect(stack).toHaveResource('AWS::Lambda::LayerVersion', {
-      CompatibleRuntimes: ['nodejs10.x'],
+      CompatibleRuntimes: ['nodejs12.x'],
     });
   });
   it('have Lambda Function', () => {
     expect(stack).toHaveResource('AWS::Lambda::Function', {
-      Runtime: 'nodejs10.x',
+      Runtime: 'nodejs12.x',
     });
   });
   it('have ApiGateway', () => {

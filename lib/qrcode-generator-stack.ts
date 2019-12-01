@@ -12,15 +12,17 @@ export class QrcodeGeneratorStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
+    const runtime = Runtime.NODEJS_12_X;
+
     // Lambda Layer
     const layer = new LayerVersion(this, 'QRCodeGeneratorLayer', {
-      compatibleRuntimes: [Runtime.NODEJS_10_X],
+      compatibleRuntimes: [runtime],
       code: Code.fromAsset('dist'),
     });
 
     // Lambda Function
     const func = new LambdaFunc(this, 'QRCodeGenerator', {
-      runtime: Runtime.NODEJS_10_X,
+      runtime,
       handler: 'index.handler',
       code: Code.fromAsset(path.join(__dirname, '../src')),
       layers: [layer],
