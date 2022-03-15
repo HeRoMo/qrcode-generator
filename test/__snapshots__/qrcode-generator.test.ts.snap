@@ -30,13 +30,7 @@ Object {
       },
     },
   },
-  "Parameters": Object {
-    "BootstrapVersion": Object {
-      "Default": "/cdk-bootstrap/hnb659fds/version",
-      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
-      "Type": "AWS::SSM::Parameter::Value<String>",
-    },
-  },
+  "Parameters": Object {},
   "Resources": Object {
     "QRCodeGeneratorAPI2C9FA9D6": Object {
       "Properties": Object {
@@ -242,12 +236,7 @@ Object {
         "QRCodeGeneratorServiceRole2960A75B",
       ],
       "Properties": Object {
-        "Code": Object {
-          "S3Bucket": Object {
-            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
-          },
-          "S3Key": "33fdde84a14d71dce27758ba2b383a67223c3c5537ff14e14b5b10ca26596f9b.zip",
-        },
+        "Code": Object {},
         "Environment": Object {
           "Variables": Object {
             "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",

@@ -2,11 +2,16 @@ import { Template } from 'aws-cdk-lib/assertions';
 import { App } from 'aws-cdk-lib';
 import { QrcodeGeneratorStack } from '@lib/qrcode-generator-stack';
 
+import { removeAssetsElements } from './test_helpers';
+
 describe('Snapshot Test', () => {
   it('match snapshot', () => {
     const app = new App();
     const stack = new QrcodeGeneratorStack(app, 'MyTestStack');
-    expect(Template.fromStack(stack)).toMatchSnapshot();
+    const template = Template.fromStack(stack).toJSON();
+    removeAssetsElements(template);
+
+    expect(template).toMatchSnapshot();
   });
 });
 
