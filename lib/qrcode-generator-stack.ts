@@ -1,9 +1,10 @@
-import { Construct, Stack, StackProps } from '@aws-cdk/core';
+import { Stack, StackProps } from 'aws-cdk-lib';
 import {
   NodejsFunction as LambdaFunc,
-} from '@aws-cdk/aws-lambda-nodejs';
-import { Runtime } from '@aws-cdk/aws-lambda';
-import { LambdaRestApi } from '@aws-cdk/aws-apigateway';
+} from 'aws-cdk-lib/aws-lambda-nodejs';
+import { Runtime } from 'aws-cdk-lib/aws-lambda';
+import { LambdaRestApi } from 'aws-cdk-lib/aws-apigateway';
+import { Construct } from 'constructs'
 
 export class QrcodeGeneratorStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
