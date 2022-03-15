@@ -4,7 +4,6 @@ import {
 } from '@aws-cdk/aws-lambda-nodejs';
 import { Runtime } from '@aws-cdk/aws-lambda';
 import { LambdaRestApi } from '@aws-cdk/aws-apigateway';
-import * as path from 'path';
 
 export class QrcodeGeneratorStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -17,7 +16,6 @@ export class QrcodeGeneratorStack extends Stack {
       runtime,
       entry: 'src/index.ts',
       handler: 'handler',
-      handler: 'handler'
     });
 
     // APIGateway
