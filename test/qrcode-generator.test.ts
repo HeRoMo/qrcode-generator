@@ -3,12 +3,6 @@ import { SynthUtils } from '@aws-cdk/assert';
 import { App, Stack } from '@aws-cdk/core';
 import { QrcodeGeneratorStack } from '@lib/qrcode-generator-stack';
 
-import { fakeLayerModules } from './test_helper';
-
-beforeAll(() => {
-  fakeLayerModules();
-});
-
 describe('Snapshot Test', () => {
   it('match snapshot', () => {
     const app = new App();
