@@ -1,5 +1,4 @@
-import '@aws-cdk/assert/jest';
-import { SynthUtils } from '@aws-cdk/assert';
+import { Template } from '@aws-cdk/assertions';
 import { App, Stack } from '@aws-cdk/core';
 import { QrcodeGeneratorStack } from '@lib/qrcode-generator-stack';
 
@@ -7,23 +6,24 @@ describe('Snapshot Test', () => {
   it('match snapshot', () => {
     const app = new App();
     const stack = new QrcodeGeneratorStack(app, 'MyTestStack');
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    expect(Template.fromStack(stack)).toMatchSnapshot();
   });
 });
 
 describe('Contain specific resources', () => {
-  let stack: Stack;
+  let template: Template;
   beforeEach(() => {
     const app = new App();
-    stack = new QrcodeGeneratorStack(app, 'MyTestStack');
+    const stack = new QrcodeGeneratorStack(app, 'MyTestStack');
+    template = Template.fromStack(stack);
   });
   it('have Lambda Function', () => {
-    expect(stack).toHaveResource('AWS::Lambda::Function', {
+    template.hasResourceProperties('AWS::Lambda::Function', {
       Runtime: 'nodejs14.x',
     });
   });
   it('have ApiGateway', () => {
-    expect(stack).toHaveResource('AWS::ApiGateway::RestApi', {
+    template.hasResourceProperties('AWS::ApiGateway::RestApi', {
       Name: 'qrcode',
     });
   });
