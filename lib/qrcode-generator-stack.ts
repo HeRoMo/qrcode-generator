@@ -16,6 +16,11 @@ export class QrcodeGeneratorStack extends Stack {
       runtime,
       entry: 'src/index.ts',
       handler: 'handler',
+      bundling: {
+        minify: true,
+        sourceMap: true,
+        target: 'es2020',
+      },
     });
 
     // APIGateway
