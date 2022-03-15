@@ -1,5 +1,5 @@
 import { Template } from 'aws-cdk-lib/assertions';
-import { App, Stack } from 'aws-cdk-lib';
+import { App } from 'aws-cdk-lib';
 import { QrcodeGeneratorStack } from '@lib/qrcode-generator-stack';
 
 describe('Snapshot Test', () => {
