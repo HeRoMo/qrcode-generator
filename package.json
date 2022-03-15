@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@aws-cdk/aws-apigateway": "^1.148.0",
+    "@aws-cdk/aws-lambda": "^1.148.0",
     "@aws-cdk/aws-lambda-nodejs": "^1.148.0",
     "@aws-cdk/core": "^1.148.0",
     "qrcode": "^1.4.2",

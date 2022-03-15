@@ -2,7 +2,7 @@ import { Construct, Stack, StackProps } from '@aws-cdk/core';
 import {
   NodejsFunction as LambdaFunc,
 } from '@aws-cdk/aws-lambda-nodejs';
-import { Runtime } from '@aws-cdk/aws-lambda'
+import { Runtime } from '@aws-cdk/aws-lambda';
 import { LambdaRestApi } from '@aws-cdk/aws-apigateway';
 import * as path from 'path';
 
@@ -16,6 +16,7 @@ export class QrcodeGeneratorStack extends Stack {
     const func = new LambdaFunc(this, 'QRCodeGenerator', {
       runtime,
       entry: 'src/index.ts',
+      handler: 'handler',
       handler: 'handler'
     });
 

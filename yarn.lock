@@ -245,7 +245,7 @@
     "@aws-cdk/core" "1.148.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-lambda@1.148.0":
+"@aws-cdk/aws-lambda@1.148.0", "@aws-cdk/aws-lambda@^1.148.0":
   version "1.148.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda/-/aws-lambda-1.148.0.tgz#b750bc5c329d5860d3382f013d36c6b4f2c49090"
   integrity sha512-1BeBk+2A9eszt5ABuqefYM1MZc1GgywvOvdBjChS/rta7I1+EbbEfQbeWRIOzPD5A8Z/tMeIIm4avNWzOwbi/g==
