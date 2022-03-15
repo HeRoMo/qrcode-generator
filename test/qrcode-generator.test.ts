@@ -23,14 +23,9 @@ describe('Contain specific resources', () => {
     const app = new App();
     stack = new QrcodeGeneratorStack(app, 'MyTestStack');
   });
-  it('have Lambda Layer', () => {
-    expect(stack).toHaveResource('AWS::Lambda::LayerVersion', {
-      CompatibleRuntimes: ['nodejs12.x'],
-    });
-  });
   it('have Lambda Function', () => {
     expect(stack).toHaveResource('AWS::Lambda::Function', {
-      Runtime: 'nodejs12.x',
+      Runtime: 'nodejs14.x',
     });
   });
   it('have ApiGateway', () => {

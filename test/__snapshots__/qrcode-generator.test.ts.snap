@@ -31,28 +31,16 @@ Object {
     },
   },
   "Parameters": Object {
-    "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0ArtifactHash4A934180": Object {
-      "Description": "Artifact hash for asset \\"1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0\\"",
+    "AssetParametersb8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765ArtifactHashAA337F34": Object {
+      "Description": "Artifact hash for asset \\"b8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765\\"",
       "Type": "String",
     },
-    "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3Bucket5EA66AEF": Object {
-      "Description": "S3 bucket for asset \\"1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0\\"",
+    "AssetParametersb8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765S3Bucket2061BF05": Object {
+      "Description": "S3 bucket for asset \\"b8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765\\"",
       "Type": "String",
     },
-    "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3VersionKeyD171B821": Object {
-      "Description": "S3 key for asset version \\"1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0\\"",
-      "Type": "String",
-    },
-    "AssetParameters62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6aArtifactHash88026844": Object {
-      "Description": "Artifact hash for asset \\"62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6a\\"",
-      "Type": "String",
-    },
-    "AssetParameters62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6aS3Bucket955B1F79": Object {
-      "Description": "S3 bucket for asset \\"62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6a\\"",
-      "Type": "String",
-    },
-    "AssetParameters62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6aS3VersionKeyB8D6B957": Object {
-      "Description": "S3 key for asset version \\"62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6a\\"",
+    "AssetParametersb8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765S3VersionKey06ABE4C8": Object {
+      "Description": "S3 key for asset version \\"b8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765\\"",
       "Type": "String",
     },
   },
@@ -263,7 +251,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6aS3Bucket955B1F79",
+            "Ref": "AssetParametersb8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765S3Bucket2061BF05",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -276,7 +264,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6aS3VersionKeyB8D6B957",
+                          "Ref": "AssetParametersb8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765S3VersionKey06ABE4C8",
                         },
                       ],
                     },
@@ -289,7 +277,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters62b7fc7bd43cf79fbb6d94febd51d86dcd3e2707ecfd808972cabce607975c6aS3VersionKeyB8D6B957",
+                          "Ref": "AssetParametersb8cebf63931181705582047c3d25e1ba638adf1caf1a96d948008406c6220765S3VersionKey06ABE4C8",
                         },
                       ],
                     },
@@ -299,67 +287,21 @@ Object {
             ],
           },
         },
-        "Handler": "index.handler",
-        "Layers": Array [
-          Object {
-            "Ref": "QRCodeGeneratorLayerE4B77F14",
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
-        ],
+        },
+        "Handler": "index.handler",
         "Role": Object {
           "Fn::GetAtt": Array [
             "QRCodeGeneratorServiceRole2960A75B",
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs14.x",
       },
       "Type": "AWS::Lambda::Function",
-    },
-    "QRCodeGeneratorLayerE4B77F14": Object {
-      "Properties": Object {
-        "CompatibleRuntimes": Array [
-          "nodejs12.x",
-        ],
-        "Content": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3Bucket5EA66AEF",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3VersionKeyD171B821",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3VersionKeyD171B821",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
-      },
-      "Type": "AWS::Lambda::LayerVersion",
     },
     "QRCodeGeneratorServiceRole2960A75B": Object {
       "Properties": Object {
