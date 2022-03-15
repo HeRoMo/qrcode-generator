@@ -1,40 +1,34 @@
-import '@aws-cdk/assert/jest';
-import { SynthUtils } from '@aws-cdk/assert';
-import { App, Stack } from '@aws-cdk/core';
+import { Template } from 'aws-cdk-lib/assertions';
+import { App } from 'aws-cdk-lib';
 import { QrcodeGeneratorStack } from '@lib/qrcode-generator-stack';
 
-import { fakeLayerModules } from './test_helper';
-
-beforeAll(() => {
-  fakeLayerModules();
-});
+import { removeAssetsElements } from './test_helpers';
 
 describe('Snapshot Test', () => {
   it('match snapshot', () => {
     const app = new App();
     const stack = new QrcodeGeneratorStack(app, 'MyTestStack');
-    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
+    const template = Template.fromStack(stack).toJSON();
+    removeAssetsElements(template);
+
+    expect(template).toMatchSnapshot();
   });
 });
 
 describe('Contain specific resources', () => {
-  let stack: Stack;
+  let template: Template;
   beforeEach(() => {
     const app = new App();
-    stack = new QrcodeGeneratorStack(app, 'MyTestStack');
-  });
-  it('have Lambda Layer', () => {
-    expect(stack).toHaveResource('AWS::Lambda::LayerVersion', {
-      CompatibleRuntimes: ['nodejs12.x'],
-    });
+    const stack = new QrcodeGeneratorStack(app, 'MyTestStack');
+    template = Template.fromStack(stack);
   });
   it('have Lambda Function', () => {
-    expect(stack).toHaveResource('AWS::Lambda::Function', {
-      Runtime: 'nodejs12.x',
+    template.hasResourceProperties('AWS::Lambda::Function', {
+      Runtime: 'nodejs14.x',
     });
   });
   it('have ApiGateway', () => {
-    expect(stack).toHaveResource('AWS::ApiGateway::RestApi', {
+    template.hasResourceProperties('AWS::ApiGateway::RestApi', {
       Name: 'qrcode',
     });
   });

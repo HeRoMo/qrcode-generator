@@ -3,7 +3,7 @@ import { APIGatewayEvent, Callback, Context } from 'aws-lambda';
 import * as QRCode from 'qrcode';
 
 function extractTxt(event: APIGatewayEvent): string|null {
-  return event && event.queryStringParameters && event.queryStringParameters.txt;
+  return event?.queryStringParameters?.txt || null;
 }
 
 export async function handler(

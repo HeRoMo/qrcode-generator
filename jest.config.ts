@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
   roots: [
     '<rootDir>/test',
   ],
@@ -13,3 +15,5 @@ module.exports = {
   },
   setupFiles: ['<rootDir>/test/env.setup.ts'],
 };
+
+export default config;

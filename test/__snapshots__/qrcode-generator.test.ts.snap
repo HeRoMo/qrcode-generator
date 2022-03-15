@@ -30,32 +30,7 @@ Object {
       },
     },
   },
-  "Parameters": Object {
-    "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0ArtifactHash4A934180": Object {
-      "Description": "Artifact hash for asset \\"1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0\\"",
-      "Type": "String",
-    },
-    "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3Bucket5EA66AEF": Object {
-      "Description": "S3 bucket for asset \\"1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0\\"",
-      "Type": "String",
-    },
-    "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3VersionKeyD171B821": Object {
-      "Description": "S3 key for asset version \\"1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0\\"",
-      "Type": "String",
-    },
-    "AssetParametersa284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807ArtifactHash061B8C8A": Object {
-      "Description": "Artifact hash for asset \\"a284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807\\"",
-      "Type": "String",
-    },
-    "AssetParametersa284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807S3BucketD24530E4": Object {
-      "Description": "S3 bucket for asset \\"a284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807\\"",
-      "Type": "String",
-    },
-    "AssetParametersa284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807S3VersionKey3A6AD8C3": Object {
-      "Description": "S3 key for asset version \\"a284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807\\"",
-      "Type": "String",
-    },
-  },
+  "Parameters": Object {},
   "Resources": Object {
     "QRCodeGeneratorAPI2C9FA9D6": Object {
       "Properties": Object {
@@ -108,7 +83,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c": Object {
+    "QRCodeGeneratorAPIDeploymentA16CD618a99b38e0ec99fd9178d0a360371ed814": Object {
       "DependsOn": Array [
         "QRCodeGeneratorAPIGET656555B1",
       ],
@@ -121,9 +96,12 @@ Object {
       "Type": "AWS::ApiGateway::Deployment",
     },
     "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorAPIAccount8AC74895",
+      ],
       "Properties": Object {
         "DeploymentId": Object {
-          "Ref": "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c",
+          "Ref": "QRCodeGeneratorAPIDeploymentA16CD618a99b38e0ec99fd9178d0a360371ed814",
         },
         "RestApiId": Object {
           "Ref": "QRCodeGeneratorAPI2C9FA9D6",
@@ -258,105 +236,22 @@ Object {
         "QRCodeGeneratorServiceRole2960A75B",
       ],
       "Properties": Object {
-        "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParametersa284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807S3BucketD24530E4",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersa284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807S3VersionKey3A6AD8C3",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersa284f08f9b82be30471b9f798d12b84bdadfadcb77b8887b592724c9d627e807S3VersionKey3A6AD8C3",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
+        "Code": Object {},
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
           },
         },
         "Handler": "index.handler",
-        "Layers": Array [
-          Object {
-            "Ref": "QRCodeGeneratorLayerE4B77F14",
-          },
-        ],
         "Role": Object {
           "Fn::GetAtt": Array [
             "QRCodeGeneratorServiceRole2960A75B",
             "Arn",
           ],
         },
-        "Runtime": "nodejs12.x",
+        "Runtime": "nodejs14.x",
       },
       "Type": "AWS::Lambda::Function",
-    },
-    "QRCodeGeneratorLayerE4B77F14": Object {
-      "Properties": Object {
-        "CompatibleRuntimes": Array [
-          "nodejs12.x",
-        ],
-        "Content": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3Bucket5EA66AEF",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3VersionKeyD171B821",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters1ebc9d3ac2033816c4abb63e4afd69d350b4aba8704cc9236b82ea520b74f4b0S3VersionKeyD171B821",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
-      },
-      "Type": "AWS::Lambda::LayerVersion",
     },
     "QRCodeGeneratorServiceRole2960A75B": Object {
       "Properties": Object {
@@ -388,6 +283,33 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+    },
+  },
+  "Rules": Object {
+    "CheckBootstrapVersion": Object {
+      "Assertions": Array [
+        Object {
+          "Assert": Object {
+            "Fn::Not": Array [
+              Object {
+                "Fn::Contains": Array [
+                  Array [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  Object {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
     },
   },
 }
