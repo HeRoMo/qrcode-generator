@@ -1,5 +1,5 @@
 /**
- * Remove
+ * Remove asset element from stack template
  * @param template JSON object of Stack template
  */
 /* eslint-disable @typescript-eslint/no-explicit-any, no-param-reassign */
