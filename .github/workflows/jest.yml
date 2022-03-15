@@ -10,7 +10,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.13.x'
+          node-version: '16'
       - name: yarn install
         run: yarn install
       - name: TS build

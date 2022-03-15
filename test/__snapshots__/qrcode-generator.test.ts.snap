@@ -108,7 +108,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c": Object {
+    "QRCodeGeneratorAPIDeploymentA16CD618a99b38e0ec99fd9178d0a360371ed814": Object {
       "DependsOn": Array [
         "QRCodeGeneratorAPIGET656555B1",
       ],
@@ -121,9 +121,12 @@ Object {
       "Type": "AWS::ApiGateway::Deployment",
     },
     "QRCodeGeneratorAPIDeploymentStageprod9D06B8BC": Object {
+      "DependsOn": Array [
+        "QRCodeGeneratorAPIAccount8AC74895",
+      ],
       "Properties": Object {
         "DeploymentId": Object {
-          "Ref": "QRCodeGeneratorAPIDeploymentA16CD6186e8d36ec32e479739dd4fc693d28468c",
+          "Ref": "QRCodeGeneratorAPIDeploymentA16CD618a99b38e0ec99fd9178d0a360371ed814",
         },
         "RestApiId": Object {
           "Ref": "QRCodeGeneratorAPI2C9FA9D6",
