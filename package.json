@@ -33,7 +33,7 @@
     "typescript": "~3.9.10"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.16.0",
+    "aws-cdk-lib": "^2.17.0",
     "constructs": "^10.0.88",
     "qrcode": "^1.5.0",
     "source-map-support": "^0.5.21"
