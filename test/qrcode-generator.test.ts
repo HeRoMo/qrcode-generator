@@ -24,7 +24,7 @@ describe('Contain specific resources', () => {
   });
   it('have Lambda Function', () => {
     template.hasResourceProperties('AWS::Lambda::Function', {
-      Runtime: 'nodejs14.x',
+      Runtime: 'nodejs16.x',
     });
   });
   it('have ApiGateway', () => {

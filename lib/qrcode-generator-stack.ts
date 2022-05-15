@@ -10,7 +10,7 @@ export class QrcodeGeneratorStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const runtime = Runtime.NODEJS_14_X;
+    const runtime = Runtime.NODEJS_16_X;
 
     // Lambda Function
     const func = new LambdaFunc(this, 'QRCodeGenerator', {
