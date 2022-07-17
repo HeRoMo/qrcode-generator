@@ -35,7 +35,7 @@
   "dependencies": {
     "aws-cdk-lib": "2.32.1",
     "constructs": "10.1.48",
-    "qrcode": "1.5.0",
+    "qrcode": "1.5.1",
     "source-map-support": "0.5.21"
   },
   "license": "MIT"
