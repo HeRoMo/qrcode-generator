@@ -4,6 +4,7 @@
   "extends": [
     "config:base"
   ],
+  "reviewers": ["HeRoMo"],
   "packageRules": [
     {
       "matchDepTypes":["devDependencies"],
