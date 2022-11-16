@@ -39,6 +39,7 @@ Object {
       "Type": "AWS::ApiGateway::RestApi",
     },
     "QRCodeGeneratorAPIAccount8AC74895": Object {
+      "DeletionPolicy": "Retain",
       "DependsOn": Array [
         "QRCodeGeneratorAPI2C9FA9D6",
       ],
@@ -51,8 +52,10 @@ Object {
         },
       },
       "Type": "AWS::ApiGateway::Account",
+      "UpdateReplacePolicy": "Retain",
     },
     "QRCodeGeneratorAPICloudWatchRole4704F540": Object {
+      "DeletionPolicy": "Retain",
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -82,6 +85,7 @@ Object {
         ],
       },
       "Type": "AWS::IAM::Role",
+      "UpdateReplacePolicy": "Retain",
     },
     "QRCodeGeneratorAPIDeploymentA16CD618a99b38e0ec99fd9178d0a360371ed814": Object {
       "DependsOn": Array [
