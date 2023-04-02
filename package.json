@@ -20,7 +20,7 @@
     "@types/qrcode": "1.5.0",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
-    "aws-cdk": "2.69.0",
+    "aws-cdk": "2.72.1",
     "esbuild": "0.17.15",
     "eslint": "8.37.0",
     "eslint-config-airbnb-base": "15.0.0",
@@ -33,7 +33,7 @@
     "typescript": "5.0.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.69.0",
+    "aws-cdk-lib": "2.72.1",
     "constructs": "10.1.285",
     "qrcode": "1.5.1",
     "source-map-support": "0.5.21"
