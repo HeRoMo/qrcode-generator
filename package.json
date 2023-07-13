@@ -21,7 +21,7 @@
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "aws-cdk": "2.85.0",
-    "esbuild": "0.18.11",
+    "esbuild": "0.18.12",
     "eslint": "8.44.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-import-resolver-typescript": "3.5.5",
