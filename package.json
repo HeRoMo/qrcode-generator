@@ -22,7 +22,7 @@
     "@typescript-eslint/parser": "6.7.2",
     "aws-cdk": "2.96.2",
     "esbuild": "0.19.3",
-    "eslint": "8.49.0",
+    "eslint": "8.50.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.28.1",
