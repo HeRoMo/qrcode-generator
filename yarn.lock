@@ -877,10 +877,10 @@
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.6.1.tgz#76e72d8a775eef7ce649c63c8acae1a0824bbaed"
   integrity sha512-XFjFHmaLVifrAKaZ+EKghFHtHSUonyw8P2Qmy2/+osBnrKbH9UYtlK10zg8/kCt47MFilll/DEDKy3DHfJ0URw==
 
-"@types/qrcode@1.5.2":
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/@types/qrcode/-/qrcode-1.5.2.tgz#27633439b7fbe88cc3043b29c8e7612a8a789e15"
-  integrity sha512-W4KDz75m7rJjFbyCctzCtRzZUj+PrUHV+YjqDp50sSRezTbrtEAIq2iTzC6lISARl3qw+8IlcCyljdcVJE0Wug==
+"@types/qrcode@1.5.3":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@types/qrcode/-/qrcode-1.5.3.tgz#73b1f6af1b81c08251006b7fe43ad073d7b7b7f6"
+  integrity sha512-TgVHRrlG9b3CHrVCS7slp57H+KhazcDFJbxz2Q5FXYd7RmA4OVdPKrzXcVnW6B19ywrp3YPmqYcfohGfc9te9g==
   dependencies:
     "@types/node" "*"
 
