@@ -16,7 +16,7 @@
   "devDependencies": {
     "@types/aws-lambda": "8.10.145",
     "@types/jest": "27.5.2",
-    "@types/node": "20.17.3",
+    "@types/node": "20.17.4",
     "@types/qrcode": "1.5.5",
     "@typescript-eslint/eslint-plugin": "8.12.2",
     "@typescript-eslint/parser": "8.12.2",
