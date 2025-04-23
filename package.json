@@ -20,7 +20,7 @@
     "@types/qrcode": "1.5.5",
     "@typescript-eslint/eslint-plugin": "8.31.0",
     "@typescript-eslint/parser": "8.31.0",
-    "aws-cdk": "2.1010.0",
+    "aws-cdk": "2.1012.0",
     "esbuild": "0.25.3",
     "eslint": "9.25.1",
     "eslint-config-airbnb-base": "15.0.0",
