@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.149",
-    "@types/jest": "27.5.2",
+    "@types/jest": "29.5.14",
     "@types/node": "22.14.1",
     "@types/qrcode": "1.5.5",
     "@typescript-eslint/eslint-plugin": "8.34.0",
@@ -27,8 +27,8 @@
     "eslint-import-resolver-typescript": "3.10.1",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jest": "28.13.5",
-    "jest": "27.5.1",
-    "ts-jest": "27.1.5",
+    "jest": "30.0.0",
+    "ts-jest": "29.4.0",
     "ts-node": "10.9.2",
     "typescript": "5.8.3"
   },
