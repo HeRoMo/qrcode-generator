@@ -1004,10 +1004,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@types/aws-lambda@8.10.150":
-  version "8.10.150"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.150.tgz#4998b238750ec389a326a7cdb625808834036bd3"
-  integrity sha512-AX+AbjH/rH5ezX1fbK8onC/a+HyQHo7QGmvoxAE42n22OsciAxvZoZNEr22tbXs8WfP1nIsBjKDpgPm3HjOZbA==
+"@types/aws-lambda@8.10.151":
+  version "8.10.151"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.151.tgz#c3c7cb1b71b0f5a4eec3c55bf2fc237894bbd4ed"
+  integrity sha512-jmDKSxDD+RXH2N94Pd2UA5a1YEfrXBn7joNVzIAsb6XiOipIcm5QVH69KuLy9JTGCKlHihK19Lp2xK5nw9iITg==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   version "7.1.19"
